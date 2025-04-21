@@ -1,0 +1,85 @@
+/*=============== LOGOS ===============*/
+#h1logos {
+  text-align: center;
+  font-size: 3rem;
+  color: #000000;
+  font-weight: 300;         /* deixa a fonte mais fina */
+  margin-top: 5rem;         /* distância do topo */
+  margin-bottom: -3rem;      /* menos espaço embaixo */
+  padding-top: 1rem;
+  height: auto;
+  opacity: 1;               /* Começa invisível */
+  transform: translateY(-20px);  /* Começa fora de lugar */
+
+}
+
+#h1logos.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+.logos__container{
+    padding-top: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logos__img img{
+   /* Aumenta a imagem em 1.5 vezes */
+   
+    transition: .7s;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .logos__img img:hover{
+    opacity: .9;
+  }
+
+  /*=============== BREAKPOINTS ===============*/
+  /* For small devices */
+
+@media screen and (max-width: 320px){ 
+  .logos__container{
+    gap: 2rem 1rem;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 578px) {
+  .logos__img img{
+    height: 60px;
+    margin-left: 35px;
+  }
+}
+
+@media screen and (min-width: 767px){
+
+  .logos__img{
+    padding: 1.5rem;
+  }
+
+  .logos__img img{
+    height: 35px;
+    padding-left: 35px;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1020px) {
+  
+.logos__container{
+  grid-template-columns: repeat(4, max-content);
+  justify-content: center;
+  }
+
+.logos__img img{
+  height: 100px;
+  }
+}

@@ -124,3 +124,96 @@ sr.reveal(`#h1logos`, {
 });
 sr.reveal(`.value__images, .contact__content`, {origin:'left'});
 sr.reveal(`.value__content, .contact__images`, {origin:'right'});
+
+// Swiper principal (de imóveis)
+const mainSwiper = new Swiper(".popular__container", {
+    slidesPerView: 1.2,
+    spaceBetween: 20,
+    grabCursor: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2.2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+    },
+    nested: true
+  });
+  
+  // Swipers internos (um por imóvel)
+  document.querySelectorAll('.popular__carousel').forEach((el) => {
+    new Swiper(el, {
+      loop: true,
+      nested: true,
+      pagination: {
+        el: el.querySelector('.swiper-pagination-inner'),
+        clickable: true,
+      },
+      navigation: {
+        nextEl: el.querySelector('.swiper-button-next-inner'),
+        prevEl: el.querySelector('.swiper-button-prev-inner'),
+      },
+    });
+  });
+
+  document.querySelectorAll('.popular__carousel').forEach((carousel) => {
+    new Swiper(carousel, {
+      loop: true,
+      navigation: {
+        nextEl: carousel.querySelector('.swiper-button-next-inner'),
+        prevEl: carousel.querySelector('.swiper-button-prev-inner'),
+      },
+      nested: true,
+    });
+  });
+
+  document.querySelectorAll('.popular__carousel').forEach((carousel) => {
+    const nextBtn = carousel.querySelector('.swiper-button-next-inner');
+    const prevBtn = carousel.querySelector('.swiper-button-prev-inner');
+  
+    // Impede que o clique no botão afete o swiper externo
+    [nextBtn, prevBtn].forEach(btn => {
+      btn.addEventListener('click', (e) => e.stopPropagation());
+    });
+  
+    new Swiper(carousel, {
+      loop: true,
+      nested: true,
+      watchOverflow: true,
+      simulateTouch: true,
+      touchStartPreventDefault: false,
+      navigation: {
+        nextEl: nextBtn,
+        prevEl: prevBtn,
+      },
+    });
+  });
+
+  
+
+ /*=============== SWIPER - HOME SECTION ===============*/
+
+
+const homeSwiper = new Swiper(".home__images", {
+    loop: true,
+    grabCursor: true,
+    slidesPerView: 1,
+    spaceBetween: 30,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+});

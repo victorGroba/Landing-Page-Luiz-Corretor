@@ -1,6 +1,6 @@
 /*=============== HOME ===============*/
 .home{
-    background: linear-gradient(170deg, hsl(0, 2%, 25%) 0%, hsl(0, 1%, 58%) 30%);
+    background: linear-gradient(170deg, hsl(0, 2%, 25%) 0%, hsl(0, 0%, 3%) 30%);
     padding-bottom: 0;
 }
 
@@ -51,12 +51,10 @@
 }
 
 .home__orbe{
-  width: 265px;
-  height: 284px;
-  background: linear-gradient(180deg,
-              hsl(0, 0%, 16%) 93%,
-              hsl(0, 0%, 67%) 100%);
-  
+  width: 266px;
+  height: 316px;
+  background-color: hsl(228, 24%, 97%);
+  border-radius: 135px 135px 16px 16px;
 }
 
 .home__img{
@@ -64,10 +62,85 @@
   width: 250px;
   height: 300px;
   overflow: hidden;
-  
-  
-  
+  border-radius: 125px 125px 12px 12px;
+  inset: 0;
+  margin: auto;
+  box-shadow: 0 16px 32px hsla(228, 66%, 25%, .25);
 }
+
+/* Correção para funcionar o swiper dentro da home__images */
+.home__images.swiper {
+  overflow: hidden;
+  position: relative;
+}
+
+.home__images .swiper-wrapper {
+  display: flex;
+}
+
+.home__images .swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.home__images .home__img {
+  position: relative; /* IMPORTANTE: deixar relativo pra funcionar slide */
+  width: 100%;
+  height: 100%;
+  border-radius: 125px 125px 12px 12px;
+  overflow: hidden;
+}
+
+.home__images .home__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Corrigir Swiper na Home */
+.home__images.swiper {
+  overflow: hidden;
+  position: relative;
+}
+
+.home__images .swiper-wrapper {
+  display: flex;
+}
+
+.home__images .swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.home__img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 125px 125px 12px 12px;
+  overflow: hidden;
+}
+
+.home__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+swiper-pagination{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+
+
+
+
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
